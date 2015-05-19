@@ -11,6 +11,9 @@ conf = YAML.load_file "config.yml"
 
 Vagrant.configure("2") do |config|
 
+    # disable vagrant shared root directory
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+
     # settings for DigitalOcean provider
     config.vm.provider :digital_ocean do |provider, override|
         override.vm.box     = "digital_ocean"
@@ -25,5 +28,5 @@ Vagrant.configure("2") do |config|
     end
 
     # call provisioning shell script
-    config.vm.provision :shell, path: "./provision.sh", privileged: false
+    config.vm.provision :shell, path: "./provision.sh"
 end
