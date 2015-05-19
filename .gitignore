@@ -1,0 +1,8 @@
+# Directories to Ignore
+.vagrant
+
+
+# Files to Ignore
+*.log
+*.swp
+config.yml
