@@ -27,6 +27,19 @@ Vagrant.configure("2") do |config|
         provider.size   = conf["digitalocean"]["size"]
     end
 
+    # settings for Linode provider
+    config.vm.provider :linode do |provider, override|
+        override.vm.box     = "linode"
+        override.vm.box_url = "https://github.com/displague/vagrant-linode/raw/master/box/linode.box"
+
+        override.ssh.private_key_path = conf["linode"]["ssh_key"]
+
+        provider.token        = conf["linode"]["token"]
+        provider.distribution = conf["linode"]["distribution"]
+        provider.datacenter   = conf["linode"]["datacenter"]
+        provider.plan         = conf["linode"]["plan"]
+    end
+
     # call provisioning shell script
     config.vm.provision :shell, path: "./provision.sh"
 end

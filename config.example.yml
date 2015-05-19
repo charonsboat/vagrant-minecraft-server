@@ -6,4 +6,8 @@ digitalocean:
     ssh_key: ~/.ssh/id_rsa
 
 linode:
-    token: <enter-your-token-here>
+    token:        <enter-your-token-here>
+    distribution: Ubuntu 14.04 LTS
+    datacenter:   newark
+    plan:         Linode 1024
+    ssh_key:      ~/.ssh/id_rsa
